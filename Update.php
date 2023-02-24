@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +21,53 @@
             color: aliceblue;
             height: 120px;
         }
+
+        th,
+        td {
+            padding: 27px;
+
+        }
+
+        th {
+
+            background: #850435;
+            color: aliceblue;
+        }
+
+        td {
+            background: #feecf0;
+           
+            text-align: center;
+        }
+
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            height: 60px;
+            text-align: center;
+            
+            font-weight: 600;
+            font-family: Georgia, 'Times New Roman', Times, serif;;
+        }
+        .gradient-button {
+            text-decoration: none;
+            display: inline-block;
+            color: white;
+            padding: 20px 40px;
+            margin-left: 1300px;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background-image: linear-gradient(to right, #f2b3c1 0%, #850435 51%, #850435 100%);
+            background-size: 200% auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+            transition: .5s;
+
+        }
     </style>
 </head>
 <?php
@@ -33,21 +81,14 @@ $Class = mysqli_query($connect, query: "SELECT `number_Class` FROM `Сlass`; ");
 $Groups = mysqli_query($connect, query: "SELECT `name_Group` FROM `Groups`;");
 $Discipline = mysqli_query($connect, query: "SELECT `name_Discipline` FROM `Disciplines`;");
 $Day = mysqli_query($connect, query: "SELECT `name_Day` FROM `DayOfWeek`;");
-print_r($Raspisanie);
-
 ?>
-
-
-
-
-
 <body>
     <div class="layer">
         <h1>Редактирование</h1>
     </div>
-   
+
     <form action="vendor/updateinfo.php" method="post">
-   
+
         <table>
             <thead class="layer1">
                 <tr>
@@ -75,88 +116,84 @@ print_r($Raspisanie);
                 </tr>
             </thead>
 
-           
+
             <tbody class="layer2">
                 <tr>
 
                     <input type="hidden" name="id" value="<?= $Raspisanie['Id_Raspisanie'] ?>">
                     <td>
-                    <input type="date" name="Data" value="<?= $Raspisanie['Data'] ?>" list="Data">
+                        <input type="date" name="Data" value="<?= $Raspisanie['Data'] ?>" list="Data">
                     </td>
                     <td>
-                    <datalist id="Day">
-                        <?php
-                        while($D=mysqli_fetch_assoc($Day))
-                        {
-                        ?>
-                            <option value="<?= $D['name_Day'] ?>">
-                        <?}?>
-                     </datalist>
-                    <input type="text" name="DayOfWeek" value="<?= $Raspisanie['name_Day'] ?>" list="Day">
+                        <datalist id="Day">
+                            <?php
+                            while ($D = mysqli_fetch_assoc($Day)) {
+                                ?>
+                                <option value="<?= $D['name_Day'] ?>">
+                                <? } ?>
+                        </datalist>
+                        <input type="text" name="DayOfWeek" value="<?= $Raspisanie['name_Day'] ?>" list="Day">
                     </td>
                     <td>
-                    <datalist id="Class">
-                        <?php
-                        while($Cla=mysqli_fetch_assoc($Class))
-                        {
-                        ?>
-                            <option value="<?= $Cla['number_Class'] ?>">
-                        <?}?>
-                     </datalist>  
-                    <input type="text" name="NumberClass" value="<?= $Raspisanie['number_Class'] ?>" list="Class">
+                        <datalist id="Class">
+                            <?php
+                            while ($Cla = mysqli_fetch_assoc($Class)) {
+                                ?>
+                                <option value="<?= $Cla['number_Class'] ?>">
+                                <? } ?>
+                        </datalist>
+                        <input type="text" name="NumberClass" value="<?= $Raspisanie['number_Class'] ?>" list="Class">
                     </td>
                     <td>
-                    <datalist id="Group">
-                        <?php
-                        while($Group=mysqli_fetch_assoc($Groups))
-                        {
-                        ?>
-                            <option value="<?= $Group['name_Group'] ?>">
-                        <?}?>
-                     </datalist>  
-                    <input type="text" name="Group" value="<?= $Raspisanie['name_Group'] ?>" list="Group">
+                        <datalist id="Group">
+                            <?php
+                            while ($Group = mysqli_fetch_assoc($Groups)) {
+                                ?>
+                                <option value="<?= $Group['name_Group'] ?>">
+                                <? } ?>
+                        </datalist>
+                        <input type="text" name="Group" value="<?= $Raspisanie['name_Group'] ?>" list="Group">
                     </td>
                     <td>
-                    <datalist id="Discipline">
-                        <?php
-                        while($Dis=mysqli_fetch_assoc($Discipline))
-                        {
-                        ?>
-                            <option value="<?= $Dis['name_Discipline'] ?>">
-                        <?}?>
-                     </datalist>
-                    <input type="text" name="Discipline" value="<?= $Raspisanie['name_Discipline'] ?>" list="Discipline">
+                        <datalist id="Discipline">
+                            <?php
+                            while ($Dis = mysqli_fetch_assoc($Discipline)) {
+                                ?>
+                                <option value="<?= $Dis['name_Discipline'] ?>">
+                                <? } ?>
+                        </datalist>
+                        <input type="text" name="Discipline" value="<?= $Raspisanie['name_Discipline'] ?>"
+                            list="Discipline">
                     </td>
                     <td>
-                    <datalist id="Auditorii">
-                        <?php
-                        while($Audi=mysqli_fetch_assoc($Auditoria))
-                        {
-                        ?>
-                            <option value="<?= $Audi['name_Auditoria'] ?>">
-                        <?}?>
-                     </datalist>  
-                    <input type="text" name="Auditorii" value="<?= $Raspisanie['name_Auditoria'] ?>" list="Auditorii">
+                        <datalist id="Auditorii">
+                            <?php
+                            while ($Audi = mysqli_fetch_assoc($Auditoria)) {
+                                ?>
+                                <option value="<?= $Audi['name_Auditoria'] ?>">
+                                <? } ?>
+                        </datalist>
+                        <input type="text" name="Auditorii" value="<?= $Raspisanie['name_Auditoria'] ?>"
+                            list="Auditorii">
                     </td>
-                    
+
                     <td>
-                    <datalist id="test">
-                        <?php
-                        while($Teach=mysqli_fetch_assoc($Teachers))
-                        {
-                        ?>
-                            <option value="<?= $Teach['name_Teacher'] ?>">
-                        <?}?>
-                     </datalist>
-                    <input type="text" name="Teachers" value="<?= $Raspisanie['name_Teacher'] ?>" list="test">
+                        <datalist id="test">
+                            <?php
+                            while ($Teach = mysqli_fetch_assoc($Teachers)) {
+                                ?>
+                                <option value="<?= $Teach['name_Teacher'] ?>">
+                                <? } ?>
+                        </datalist>
+                        <input type="text" name="Teachers" value="<?= $Raspisanie['name_Teacher'] ?>" list="test">
                     </td>
                 </tr>
 
             </tbody>
-        </table>
-        <button type="submit">Изменить</button>
+        </table><br>
+        <button class="gradient-button" type="submit">Изменить</button>
     </form>
- 
+
 </body>
 
 </html>

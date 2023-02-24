@@ -84,7 +84,7 @@ require_once 'config/connect.php';
 
 <body>
 
-    <a href="Update.php" class="gradient-button">Перейти к добавлению</a>
+    <a href="AddPage.php" class="gradient-button">Перейти к добавлению</a>
    
         <h1>Расписание</h1>
    
@@ -169,8 +169,8 @@ require_once 'config/connect.php';
                                 </h2>
                             </td>
                             <td>
-                                <a href="Update.php?id=<?= $rasp[7] ?>" color = #22ff00>Изменить</a><br>
-                                <a href="Update.php?id=<?= $rasp[7] ?>">Удалить</a>
+                                <a href="Update.php?id=<?= $rasp[7] ?>" >Изменить</a><br>
+                                <a href="vendor/delete.php?id=<?= $rasp[7] ?>">Удалить</a>
                             </td>
                         </tr>
                         <?php
