@@ -100,7 +100,7 @@ require_once 'config/connect.php';
                 </tr>
             </thead>
        
-        <div class="scroll-table-body">
+        <div class="scrol-table-body">
             
                 <tbody>
                     <?php
