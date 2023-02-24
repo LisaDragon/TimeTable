@@ -28,6 +28,7 @@ require_once 'config/connect.php';
         th,
         td {
             padding: 30px;
+            
         }
 
         th {
@@ -38,6 +39,7 @@ require_once 'config/connect.php';
 
         td {
             background: #feecf0;
+           
         }
 
 
@@ -60,6 +62,12 @@ require_once 'config/connect.php';
             box-shadow: 0 0 20px rgba(0, 0, 0, .1);
             transition: .5s;
 
+        }
+        .scroll-table-body
+        {
+            
+            
+            overflow: scroll;
         }
     </style>
 </head>
@@ -100,7 +108,7 @@ require_once 'config/connect.php';
                 </tr>
             </thead>
        
-        <div class="scrol-table-body">
+        <div class="scroll-table-body">
             
                 <tbody>
                     <?php
