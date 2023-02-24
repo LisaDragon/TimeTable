@@ -11,24 +11,27 @@ require_once 'config/connect.php';
 
     <title>Расписание</title>
     <style>
-        .layer {
+        h1{
 
             margin-left: 45%;
             /* Отступ слева */
 
             margin-right: 43%;
+          
 
         }
 
         .layer2 {
             margin-left: 10px;
             align="center"
+            margin-bottom:  20px;
+          
         }
 
         th,
         td {
             padding: 30px;
-            
+
         }
 
         th {
@@ -39,7 +42,7 @@ require_once 'config/connect.php';
 
         td {
             background: #feecf0;
-           
+
         }
 
 
@@ -52,7 +55,7 @@ require_once 'config/connect.php';
             display: inline-block;
             color: white;
             padding: 20px 40px;
-            margin: 0 1200px;
+            margin-left: 1000px;
             border-radius: 10px;
             font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
@@ -63,21 +66,28 @@ require_once 'config/connect.php';
             transition: .5s;
 
         }
-        .scroll-table-body
+        a
         {
+            display: block;  
+            text-align:center;
+            font-size: 25px;
             
-            
+        }
+        .scroll-table-body {
+
+
             overflow: scroll;
         }
+        
     </style>
 </head>
 
 <body>
 
-    <a href="" class="gradient-button">Перейти к редактированию</a>
-    <div class="layer">
+    <a href="Update.php" class="gradient-button">Перейти к добавлению</a>
+   
         <h1>Расписание</h1>
-    </div>
+   
 
 
     <div class="layer2">
@@ -105,14 +115,19 @@ require_once 'config/connect.php';
                     <th>
                         <h2>Преподаватель</h2>
                     </th>
+                    <th>
+                    <h2>Редактировать</h2>
+                    <h2>Удалить</h2>
+                    </th>
                 </tr>
             </thead>
-       
-        <div class="scroll-table-body">
-            
+            </div>
+
+            <div class="scroll-table-body">
+
                 <tbody>
                     <?php
-                    $Raspisanie = mysqli_query($connect, query: "SELECT `Raspisanie`.`Data`, `Auditoria`.name_Auditoria, `Teachers`.name_Teacher, `DayOfWeek`.name_Day, `Disciplines`.name_Discipline, `Groups`.name_Group, `Сlass`.`number_Class` FROM ( ( ( ( (( `Raspisanie` INNER JOIN `Auditoria` ON `Raspisanie`.id_Auditoria = `Auditoria`.id_Auditoria ) INNER JOIN `Teachers` ON `Raspisanie`.id_Teacher = `Teachers`.id_Teacher ) INNER JOIN `DAYOFWEEK` ON `Raspisanie`.id_Day = `DAYOFWEEK`.id_Day ) INNER JOIN `Disciplines` ON `Raspisanie`.id_Discipline = `Disciplines`.id_Discipline ) INNER JOIN `Groups` ON `Raspisanie`.id_Group = `Groups`.id_Group ) INNER JOIN `Сlass` ON `Raspisanie`.`id_Class` = `Сlass`.id_Class); ");
+                    $Raspisanie = mysqli_query($connect, query: "SELECT `Raspisanie`.`Data`, `Auditoria`.name_Auditoria, `Teachers`.name_Teacher, `DayOfWeek`.name_Day, `Disciplines`.name_Discipline, `Groups`.name_Group, `Сlass`.`number_Class`,`Raspisanie`.`Id_Raspisanie` FROM ( ( ( ( (( `Raspisanie` INNER JOIN `Auditoria` ON `Raspisanie`.id_Auditoria = `Auditoria`.id_Auditoria ) INNER JOIN `Teachers` ON `Raspisanie`.id_Teacher = `Teachers`.id_Teacher ) INNER JOIN `DAYOFWEEK` ON `Raspisanie`.id_Day = `DAYOFWEEK`.id_Day ) INNER JOIN `Disciplines` ON `Raspisanie`.id_Discipline = `Disciplines`.id_Discipline ) INNER JOIN `Groups` ON `Raspisanie`.id_Group = `Groups`.id_Group ) INNER JOIN `Сlass` ON `Raspisanie`.`id_Class` = `Сlass`.id_Class); ");
                     $Raspisanie = mysqli_fetch_all($Raspisanie);
 
                     foreach ($Raspisanie as $rasp) {
@@ -153,15 +168,19 @@ require_once 'config/connect.php';
                                     <?= $rasp[2] ?>
                                 </h2>
                             </td>
+                            <td>
+                                <a href="Update.php?id=<?= $rasp[7] ?>" color = #22ff00>Изменить</a><br>
+                                <a href="Update.php?id=<?= $rasp[7] ?>">Удалить</a>
+                            </td>
                         </tr>
                         <?php
                     }
                     ?>
                 </tbody>>
-            </table>>
-        </div>>
+        </table>>
+    </div>>
 
-    </div>
+   
 </body>
 
 </html>
