@@ -103,7 +103,7 @@ print_r($Raspisanie);
                             <option value="<?= $Cla['number_Class'] ?>">
                         <?}?>
                      </datalist>  
-                    <input type="text" name="Номер пары" value="<?= $Raspisanie['number_Class'] ?>" list="Class">
+                    <input type="text" name="NumberClass" value="<?= $Raspisanie['number_Class'] ?>" list="Class">
                     </td>
                     <td>
                     <datalist id="Group">
@@ -114,7 +114,7 @@ print_r($Raspisanie);
                             <option value="<?= $Group['name_Group'] ?>">
                         <?}?>
                      </datalist>  
-                    <input type="text" name="Группа" value="<?= $Raspisanie['name_Group'] ?>" list="Group">
+                    <input type="text" name="Group" value="<?= $Raspisanie['name_Group'] ?>" list="Group">
                     </td>
                     <td>
                     <datalist id="Discipline">
@@ -125,7 +125,7 @@ print_r($Raspisanie);
                             <option value="<?= $Dis['name_Discipline'] ?>">
                         <?}?>
                      </datalist>
-                    <input type="text" name="Дисциплина" value="<?= $Raspisanie['name_Discipline'] ?>" list="Discipline">
+                    <input type="text" name="Discipline" value="<?= $Raspisanie['name_Discipline'] ?>" list="Discipline">
                     </td>
                     <td>
                     <datalist id="Auditorii">
@@ -136,7 +136,7 @@ print_r($Raspisanie);
                             <option value="<?= $Audi['name_Auditoria'] ?>">
                         <?}?>
                      </datalist>  
-                    <input type="text" name="Аудитория" value="<?= $Raspisanie['name_Auditoria'] ?>" list="Auditorii">
+                    <input type="text" name="Auditorii" value="<?= $Raspisanie['name_Auditoria'] ?>" list="Auditorii">
                     </td>
                     
                     <td>
@@ -148,7 +148,7 @@ print_r($Raspisanie);
                             <option value="<?= $Teach['name_Teacher'] ?>">
                         <?}?>
                      </datalist>
-                    <input type="text" name="Преподаватель" value="<?= $Raspisanie['name_Teacher'] ?>" list="test">
+                    <input type="text" name="Teachers" value="<?= $Raspisanie['name_Teacher'] ?>" list="test">
                     </td>
                 </tr>
 
